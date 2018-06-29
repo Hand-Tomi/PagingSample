@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.text.Html"/>
+        <import type="com.sugaryple.pobcast.util.Util"/>
+        <variable
+            name="data"
+            type="com.sugaryple.pobcast.data.vo.Podcast" />
+        <variable
+            name="listener"
+            type="com.sugaryple.pobcast.ui.result.PodcastItemClickListener" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/corners_all"
+        android:elevation="2dp"
+        android:padding="8dp"
+        android:translationZ="2dp"
+        tools:layout_editor_absoluteY="25dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:onClick="@{(view) -> listener.onClick(data)}">
+
+        <ImageView
+            android:id="@+id/item_podcast_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            app:imageUrl="@{data.image}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_podcast_tv_title" />
+
+        <TextView
+            android:id="@+id/item_podcast_tv_description"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:text="@{data.descriptionOriginal}"
+            android:textSize="12sp"
+            android:maxLines="6"
+            app:layout_constraintBottom_toBottomOf="@+id/item_podcast_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/item_podcast_img"
+            app:layout_constraintTop_toBottomOf="@+id/item_podcast_tv_title" />
+
+        <TextView
+            android:id="@+id/item_podcast_tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="@{data.titleOriginal}"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/item_podcast_tv_publisher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{Html.fromHtml(data.publisherHighlighted, Html.FROM_HTML_MODE_COMPACT)}"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_podcast_img" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

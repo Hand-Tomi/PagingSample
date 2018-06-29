@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewmodel"
+            type="com.sugaryple.pobcast.ui.result.ResultViewModel" />
+        <variable
+            name="listener"
+            type="com.sugaryple.pobcast.ui.result.ResultUserActionsListener" />
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/result_act_tv_search"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="56dp"
+            android:background="@drawable/corners_all"
+            android:elevation="4dp"
+            android:fitsSystemWindows="true"
+            android:onClick="@{(view) -> listener.onClickSearchView(view)}"
+            android:translationZ="5dp"
+            android:text="@{viewmodel.search}"
+            android:gravity="start|center_vertical"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:paddingStart="10dp"
+            app:layout_scrollFlags="scroll|snap" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/result_act_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBackground"
+            android:scrollbars="vertical"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</layout>
