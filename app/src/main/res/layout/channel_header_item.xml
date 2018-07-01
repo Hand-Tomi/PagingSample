@@ -5,10 +5,10 @@
         android:layout_height="220dp"
         android:background="@color/colorPrimary">
         <ImageView
-            android:layout_width="250dp"
-            android:layout_height="80dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:layout_gravity="center_horizontal"
-            android:background="@android:color/black"/>
+            android:background="@drawable/podcast_555_178"/>
     </FrameLayout>
 </layout>
