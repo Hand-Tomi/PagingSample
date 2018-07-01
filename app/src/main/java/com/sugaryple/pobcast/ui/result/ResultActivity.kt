@@ -9,6 +9,7 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import android.widget.TextView
 import com.sugaryple.pobcast.R
 import com.sugaryple.pobcast.data.vo.Podcast
 import com.sugaryple.pobcast.databinding.ResultActBinding
@@ -30,6 +31,9 @@ class ResultActivity: AppCompatActivity() {
             viewmodel = obtainViewModel()
             listener = object : ResultUserActionsListener {
                 override fun onClickSearchView(v: View) {
+                    if(v is TextView) {
+                        v.text = ""
+                    }
                     finishAfterTransition()
                 }
             }
@@ -75,7 +79,7 @@ class ResultActivity: AppCompatActivity() {
     private fun obtainViewModel() = obtainViewModel(ResultViewModel::class.java)
 
     companion object {
-        const val TOP_MARGIN_SEARCH_VIEW = 10
+        const val TOP_MARGIN_SEARCH_VIEW = 32
         const val TRANSITION_NAME_SEARCH_INPUT = "act_result_input"
         const val SEARCH_QUERY = "SEARCH_QUERY"
         fun startActivity(act: Activity, view: View, query: String) {

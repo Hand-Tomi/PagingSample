@@ -38,10 +38,10 @@ abstract class BaseApi<S>(context: Context, basePath: String, serviceClass: Clas
                             .build()
                     return@addInterceptor it.proceed(request)
                 }
-        if(context.resources.getBoolean(R.bool.debug)) {
-            //debug mode
+//        if(context.resources.getBoolean(R.bool.debug)) {
+            //TODO Debug--
             builder.addInterceptor(logging)
-        }
+//        }
         return builder.build()
     }
 

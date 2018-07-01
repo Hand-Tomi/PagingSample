@@ -23,6 +23,7 @@ class BestPodcastsDataSource(
                     callback.onResult(it.channels, previousPageNumber, nextPageNumber)
                 }, {
                     it.printStackTrace()
+                    callback.onResult(listOf(Channel()), null, null)
                 })
     }
 
@@ -34,6 +35,7 @@ class BestPodcastsDataSource(
                     callback.onResult(it.channels, nextPageNumber)
                 }, {
                     it.printStackTrace()
+                    callback.onResult(listOf(Channel()), null)
                 })
 
     }

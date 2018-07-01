@@ -4,13 +4,13 @@ import com.google.gson.annotations.SerializedName
 
 data class Podcast(
         @SerializedName("id")
-        val id: String,
+        val id: String = "",
         @SerializedName("title_original")
-        val titleOriginal: String,
+        val titleOriginal: String = "",
         @SerializedName("description_original")
-        val descriptionOriginal: String,
+        val descriptionOriginal: String = "",
         @SerializedName("image")
-        val image: String,
+        val image: String = "",
         @SerializedName("publisher_highlighted")
-        val publisherHighlighted: String
+        val publisherHighlighted: String = ""
 )

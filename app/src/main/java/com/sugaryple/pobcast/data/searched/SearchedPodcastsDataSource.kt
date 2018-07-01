@@ -26,6 +26,7 @@ class SearchedPodcastsDataSource(
                     callback.onResult(it.results, null, nextPageNumber)
                 }, {
                     it.printStackTrace()
+                    callback.onResult(listOf(Podcast()), null, null)
                 })
     }
 
@@ -36,6 +37,7 @@ class SearchedPodcastsDataSource(
                     callback.onResult(it.results, nextPageNumber)
                 }, {
                     it.printStackTrace()
+                    callback.onResult(listOf(Podcast()), null)
                 })
     }
 

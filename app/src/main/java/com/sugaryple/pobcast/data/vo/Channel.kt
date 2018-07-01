@@ -4,19 +4,18 @@ import com.google.gson.annotations.SerializedName
 
 data class Channel(
         @SerializedName("itunes_id")
-        val itunesId: Long,
+        val itunesId: Long = 0L,
         @SerializedName("website")
-        val website: String?,
+        val website: String? = null,
         @SerializedName("title")
-        val title: String,
+        val title: String = "",
         @SerializedName("lastest_pub_date_ms")
-        val lastestPubDateMs: Long,
+        val lastestPubDateMs: Long = 0L,
         @SerializedName("description")
-        val description: String,
+        val description: String = "",
         @SerializedName("image")
-        val image: String,
+        val image: String = "",
         @SerializedName("publisher")
-        val publisher: String,
+        val publisher: String = "",
         @SerializedName("language")
-        val language: String) {
-}
+        val language: String = "")
